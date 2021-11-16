@@ -1,8 +1,11 @@
 import * as THREE from 'three'
+// import ShapeUI from './shape-ui';
 
 export const Vectors = (props) => {
 
-    const scaleFactor = 5; //arbitrary, user input 
+    // console.log(ShapeUI.vectorMultiplier)
+
+    const scaleFactor = 5; //arbitrary, could be user input 
     const radius = 10; //radius of cyl, should be variable 
     const pi = Math.PI;
     
@@ -55,7 +58,7 @@ export const Vectors = (props) => {
             const length = (8) ;
             const hex = 0xff0000;
             
-            vectors.push(<arrowHelper args={[dir, origin, length, hex, multiplier/(i+2), multiplier/(i+2)]}/>); 
+            vectors.push(<arrowHelper args={[dir, origin, length, hex, 2*multiplier/(i+2), multiplier/(i+2)]}/>); 
         }
         vectorArray.push(vectors)
     }
@@ -63,7 +66,7 @@ export const Vectors = (props) => {
     const currentVector = () => {
         const origin = new THREE.Vector3(0,0,0);
         const dir = new THREE.Vector3(0,1,0);
-        dir.multiplyScalar(props.current)
+        dir.multiplyScalar(-props.current)
 
         return (
             <arrowHelper args={[dir, origin, 60, 0x10e810, 15, 5]} />
@@ -75,3 +78,5 @@ export const Vectors = (props) => {
     return vectorArray;
 
 }
+
+export default Vectors;
