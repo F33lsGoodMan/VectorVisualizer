@@ -41,9 +41,9 @@ export const WireWithCurrent = () => {
         <>
             <div className='container'>
                 <div className='child-style'> 
-                    <div style={{padding: '.4rem', marginLeft: '2rem'}}>dir</div>
+                    <div style={{padding: '.4rem', marginLeft: '2rem'}}>Current Direction</div>
                         <Switch className='slider' onChange={handleChecked} checked={checked}/>
-                    <div style={{padding: '.4rem'}}>disp</div>
+                    <div style={{padding: '.4rem'}}>Show Vectors</div>
                         <Switch className='slider' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     </div>
                 <div style={{border: '2px blue solid', display: 'flex', width: '35%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem'}}>
@@ -65,7 +65,7 @@ export const WireWithCurrent = () => {
                 <OrbitControls/>
                 <gridHelper args={[500, 100]}/>
                 <axesHelper args={[30]}/>
-                <Vectors multiplier={vectorMultiplier} current={currentDirection}/>
+                {showVectors ? <Vectors multiplier={vectorMultiplier} current={currentDirection}/> : null}
             </Canvas>
         </>
     )

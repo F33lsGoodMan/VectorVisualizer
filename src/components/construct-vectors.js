@@ -3,8 +3,6 @@ import * as THREE from 'three'
 
 export const Vectors = (props) => {
 
-    // console.log(ShapeUI.vectorMultiplier)
-
     const scaleFactor = 5; //arbitrary, could be user input 
     const radius = 10; //radius of cyl, should be variable 
     const pi = Math.PI;

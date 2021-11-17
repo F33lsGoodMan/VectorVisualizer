@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as THREE from 'three'
 import { 
     Canvas
@@ -12,13 +12,16 @@ import '../style.css'
 
 export const WireMagField = () => {
 
-    const [vectorMultiplier, setVectorMultiplier] = useState(0)
+    const [fieldStrength, setFieldStrength] = useState(0)
+    const [currentStrength, setCurrentStrength] = useState(0)
     const [showVectors, setShowVectors] = useState(true);
-    const [checked, setChecked] = useState(1);
+    const [checked, setChecked] = useState(true);
     const [fieldDirection, setFieldDirection] = useState('0');
+    const [currentDirection, setCurrentDirection] = useState(1)
 
     const handleChecked = () => {
-        setChecked(!checked)
+        setChecked(!checked);
+        setCurrentDirection(-1 * currentDirection);
     }
 
     const Light = ({ brightness, color }) => {
@@ -43,15 +46,23 @@ export const WireMagField = () => {
         <>
             <div className='container'>
                 <div className='child-style'> 
-                    <div style={{padding: '.4rem', marginLeft: '2rem'}}>dir</div>
-                        <Switch className='slider' onChange={handleChecked} checked={checked}/>
-                    <div style={{padding: '.4rem'}}>disp</div>
+                    <div style={{padding: '.4rem'}}>Show Vectors</div>
                         <Switch className='slider' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
-                    </div>
-                <div style={{border: '2px blue solid', display: 'flex', width: '35%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem'}}>
-                        <Slider defaultValue={vectorMultiplier} step={1} marks min={0} max={5} onChange={(e) => setVectorMultiplier(e.target.value)}/> 
+                    <div style={{padding: '.4rem'}}>Current Direction</div>
+                        <Switch className='slider' onChange={handleChecked} checked={checked}/>
                 </div>
-                <div>
+                <div className='container'>
+                    <div style={{border: '2px blue solid', display: 'flex', width: '30%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                        Current Strength    
+                        <Slider defaultValue={currentStrength} step={5} marks min={0} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
+                    </div>
+                    <div style={{border: '2px blue solid', display: 'flex', width: '30%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                        Field Strength
+                        <Slider defaultValue={fieldStrength} step={1} marks min={0} max={5} onChange={(e) => setFieldStrength(e.target.value)}/> 
+                    </div>
+                </div>
+                <div style={{width: '35%'}}>
+                    Field Direction
                     <button className='arrow-button' value={0} onClick={handleClick}>&larr;</button>
                     <button className='arrow-button' value={1} onClick={handleClick}>&uarr;</button>
                     <button className='arrow-button' value={2} onClick={handleClick}>&darr;</button>
@@ -67,10 +78,20 @@ export const WireMagField = () => {
                 <OrbitControls/>
                 <gridHelper args={[500, 100]}/>
                 <axesHelper args={[30]}/>
-                <MagField direction={fieldDirection}/>
+                {showVectors ?
+                    <MagField 
+                        fieldDirection={fieldDirection} 
+                        fieldStrength={fieldStrength} 
+                        currentStrength={currentStrength} 
+                        currentDirection={currentDirection}
+                    />
+                :
+                    null
+                }
             </Canvas>
         </>
     )
 }
 
 export default WireMagField;
+
