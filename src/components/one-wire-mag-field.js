@@ -71,9 +71,13 @@ export const WireMagField = () => {
             </div>
             <Canvas>
                 <Light brightness={10} color={'white'} />
-                <mesh>
+                <mesh position={[-25, 0, 0]}>
                     <meshBasicMaterial color="blue" wireframe={true}/>
                     <cylinderGeometry args={[5, 5, 75, 64]}/>
+                </mesh>
+                <mesh position={[25, 0, 0]}>
+                    <meshBasicMaterial color="blue" wireframe={true}/>
+                    <cylinderGeometry args={[5, 5, 75, 64]} />;
                 </mesh>
                 <OrbitControls/>
                 <gridHelper args={[500, 100]}/>

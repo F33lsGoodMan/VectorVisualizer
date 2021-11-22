@@ -49,7 +49,8 @@ export const MagField = ({fieldDirection, fieldStrength, currentStrength, curren
         const origin = new THREE.Vector3(0,15,0);
 
         const cur = new THREE.Vector3(0,1,0);
-        const mag = dir
+
+        const mag = new THREE.Vector3().copy(dir);
         mag.multiplyScalar(currentDirection)
 
         const f = new THREE.Vector3()
