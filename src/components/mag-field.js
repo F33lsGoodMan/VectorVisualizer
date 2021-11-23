@@ -1,7 +1,8 @@
 import * as THREE from 'three'
+import { useEffect } from 'react';
 
-export const MagField = ({fieldDirection, fieldStrength, currentStrength, currentDirection}) => {
-
+export const MagField = ({fieldDirection, fieldStrength, currentStrength, currentDirection, shift}) => {
+    console.log('render')
     let dir;
     switch (fieldDirection) {
         case '0':
@@ -19,18 +20,18 @@ export const MagField = ({fieldDirection, fieldStrength, currentStrength, curren
         default:
             break;
     }
+    
 
     let vectors = []
     const hex = 0xff0000
 
     for (let r = 0; r < 11; r++) { //number of rows
         for (let i = 0; i < 11; i++) { //num of elms per row 
-            const x = -75 + (i*15);
+            const x = -75 + shift + (i*15);
             const z = -75 + (r*15)
             const origin = new THREE.Vector3(x, 0, z);
             vectors.push(<arrowHelper args={[dir, origin, 10, hex, (3 + fieldStrength), (2 + fieldStrength/2)]}/>)
         }
-
     }
 
     const currentVector = () => {
@@ -58,13 +59,13 @@ export const MagField = ({fieldDirection, fieldStrength, currentStrength, curren
         f.crossVectors(cur, mag)
 
         return (
-            <arrowHelper args={[f, origin, 35, 0xe80be4, 10, 5]} />
+            <arrowHelper args={[f, origin, 35, 0xe80be4, 10 + .5*fieldStrength + .25*currentStrength, 5 + .25*fieldStrength + .15*currentStrength]} />
         )
 
     }
 
     vectors.push(forceVector())
-
+    console.log(dir)
     return (
         vectors
     )

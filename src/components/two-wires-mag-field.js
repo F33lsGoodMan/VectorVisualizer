@@ -10,7 +10,7 @@ import { Slider } from "@mui/material";
 import { MagField } from './mag-field.js'
 import '../style.css'
 
-export const WireMagField = () => {
+export const TwoWiresMagField = () => {
 
     const [fieldStrength, setFieldStrength] = useState(0)
     const [currentStrength, setCurrentStrength] = useState(0)
@@ -87,6 +87,10 @@ export const WireMagField = () => {
                     <meshBasicMaterial color="blue" wireframe={true}/>
                     <cylinderGeometry args={[5, 5, 75, 64]}/>
                 </mesh>
+                <mesh position={[50, 0, 0]}>
+                    <meshBasicMaterial color="green" wireframe={true}/>
+                    <cylinderGeometry args={[5, 5, 75, 64]}/>
+                </mesh>
                 
                 <OrbitControls/>
                 <gridHelper args={[500, 100]}/>
@@ -97,7 +101,7 @@ export const WireMagField = () => {
                         fieldStrength={fieldStrength} 
                         currentStrength={currentStrength} 
                         currentDirection={currentDirection}
-                        shift={0}
+                        shift={30}
                     />
                 :
                     null
@@ -107,5 +111,5 @@ export const WireMagField = () => {
     )
 }
 
-export default WireMagField;
+export default TwoWiresMagField;
 

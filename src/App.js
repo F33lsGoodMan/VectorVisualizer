@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {WireWithCurrent} from "./components/wire-current";
 import {WireMagField} from './components/one-wire-mag-field'
+import {TwoWiresMagField} from './components/two-wires-mag-field'
 import './style.css'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
               setEnvironment(<WireMagField />)
               break;
           case '2':
+              setEnvironment(<TwoWiresMagField/>)
               break;
           default:
               break

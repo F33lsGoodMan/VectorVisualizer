@@ -1,4 +1,80 @@
 
-.options {
+.container {
+    display: flex;
+    flex-direction: columns;
+    border: 2px red solid;
+    width: 100%;
+    height: 5rem;
+    background-color: #E9C46A;
+    align-items: center;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: columns;
+    border: 2px red solid;
+    width: 100%;
+    height: 5rem;
+    background-color: #E9C46A;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    height: 5rem;
+    background-color: #264653;
     border: 2px solid red;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.button {
+    width: 6rem;
+    height: 4rem;
+}
+
+.slider {
+    vertical-align: center;
+    margin-left: 4px;
+}
+
+.legendCur {
+    float: left;
+    height: 12px;
+    width: 12px;
+    background-color: #10e810;
+    border: 1px solid black;
+}
+
+.legendMag {
+    float: left;
+    height: 12px;
+    width: 12px;
+    background-color: red;
+    border: 1px solid black;
+}
+
+.legendF {
+    float: left;
+    height: 12px;
+    width: 12px;
+    background-color: #e80be4;
+    border: 1px solid black;
+}
+
+.child-style {
+    display: flex;
+    border: 2px green solid;
+    vertical-align: middle;
+    width: 45%;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.arrow-button {
+    width: 3rem;
+    height: 3rem;
 }
