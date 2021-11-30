@@ -7,7 +7,7 @@ import { OrbitControls } from "@react-three/drei";
 import "../App.scss";
 import Switch from "react-switch";
 import { Slider } from "@mui/material";
-import { Vectors } from '../components/construct-vectors'
+import CurlingVectors from './curl'
 import '../style.css'
 
 
@@ -65,7 +65,7 @@ export const WireWithCurrent = () => {
                 <OrbitControls/>
                 <gridHelper args={[500, 100]}/>
                 <axesHelper args={[30]}/>
-                {showVectors ? <Vectors multiplier={vectorMultiplier} current={currentDirection}/> : null}
+                {showVectors ? <CurlingVectors multiplier={vectorMultiplier} current={currentDirection}/> : null}
             </Canvas>
         </>
     )

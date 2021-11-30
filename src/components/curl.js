@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 // import ShapeUI from './shape-ui';
 
-export const Vectors = (props) => {
+export const CurlingVectors = (props) => {
 
     const scaleFactor = 5; //arbitrary, could be user input 
     const radius = 10; //radius of cyl, should be variable 
@@ -77,4 +77,4 @@ export const Vectors = (props) => {
 
 }
 
-export default Vectors;
+export default CurlingVectors;

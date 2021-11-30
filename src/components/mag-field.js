@@ -65,7 +65,7 @@ export const MagField = ({fieldDirection, fieldStrength, currentStrength, curren
     }
 
     vectors.push(forceVector())
-    console.log(dir)
+   
     return (
         vectors
     )
