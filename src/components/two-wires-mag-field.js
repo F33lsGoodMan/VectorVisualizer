@@ -12,8 +12,8 @@ import CurlingVectorsExtended from "./curl-extended";
 
 export const TwoWiresMagField = () => {
 
-    const [wireDistance, setWireDistance] = useState(50)
-    const [currentStrength, setCurrentStrength] = useState(1)
+    const [wireDistance, setWireDistance] = useState(25)
+    const [currentStrength, setCurrentStrength] = useState(5)
     const [showVectors, setShowVectors] = useState(true);
     const [checked1, setChecked1] = useState(true);
     const [checked2, setChecked2] = useState(true);
@@ -81,17 +81,17 @@ export const TwoWiresMagField = () => {
                 <div className='slider-container'>
                     <div style={{border: '2px blue solid', display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
                         Current Strength    
-                        <Slider defaultValue={currentStrength} step={5} marks min={0} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
+                        <Slider defaultValue={currentStrength} step={5} marks min={5} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
                     </div>
                     <div style={{border: '2px blue solid', display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
                         Wire Distance
-                        <Slider defaultValue={wireDistance} step={10} marks min={50} max={100} onChange={(e) => setWireDistance(e.target.value)}/> 
+                        <Slider defaultValue={wireDistance} step={5} marks min={25} max={50} onChange={(e) => setWireDistance(e.target.value)}/> 
                     </div>
                 </div>
             </div>
             <Canvas>
                 <Light brightness={10} color={'white'} />
-                <mesh position={[0, 0, 0]}>
+                <mesh position={[-25, 0, 0]}>
                     <meshBasicMaterial color="blue" wireframe={true}/>
                     <cylinderGeometry args={[5, 5, 75, 64]}/>
                 </mesh>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import * as THREE from 'three'
 import { 
     Canvas
 } from "react-three-fiber";

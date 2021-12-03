@@ -11,7 +11,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
     dir.multiplyScalar(currentDirection1);
 
     for (let d = 0; d < 9; d++) {
-        const x = 30 + d*10;
+        const x = 15 + d*10;
         const z = -7.5*currentDirection1;
         const y = 10;
 
@@ -31,7 +31,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
         for (let j = 1; j < 8; j++) { //8 for arbitrary num of vecs in each ring
             const theta = (2*pi / 8) * j;
             const rad = 10 + (10 * i);
-            const x = rad * Math.cos(theta) ;
+            const x = rad * Math.cos(theta) -25 ;
             const z = rad * Math.sin(theta); 
             const y = 10;
             let curlingDir;
@@ -64,45 +64,44 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
 
             curlingDir.multiplyScalar(currentDirection1)
             const origin = new THREE.Vector3(x,y,z); 
-            const len = (8) ;
+            const len = (10) ;
             const color = 0xff00ee;
             
-            curlVecs.push(<arrowHelper args={[curlingDir, origin, len, color, 1.5 + currentStrength/(i+7), .5 + currentStrength/(i+7)]}/>); 
+            curlVecs.push(<arrowHelper args={[curlingDir, origin, len, color, 2*currentStrength/(i+7), currentStrength/(i+7)]}/>); 
         }
         vectorArray.push(curlVecs)
     }
 
-    const curDir = new THREE.Vector3(0,1,0);
-
-    const currentVector = () => {
-        const origin = new THREE.Vector3(0,0,0);
-        
-        curDir.multiplyScalar(-currentDirection1)
+    const currentOneVector = () => {
+        const origin = new THREE.Vector3(-25,0,0);
+        const currentOne = new THREE.Vector3(0,1,0);
+        currentOne.multiplyScalar(-currentDirection1)
 
         return (
-            <arrowHelper args={[curDir, origin, 60, 0x10e810, 15, 5]} />
+            <arrowHelper args={[currentOne, origin, 60, 0x10e810, 15, 5]} />
         )
     }
 
-    const inducedCurrentVector = () => {
+    const currentTwoVector = () => {
         const origin = new THREE.Vector3(wireDistance,0,0);
-        const indCurDir = new THREE.Vector3(0,1,0);
-        indCurDir.multiplyScalar(-currentDirection2)
+        const currentTwo = new THREE.Vector3(0,1,0);
+        currentTwo.multiplyScalar(-currentDirection2)
 
         return (
-            <arrowHelper args={[indCurDir, origin, 60, 0x2aaa2, 15, 5]} />
+            <arrowHelper args={[currentTwo, origin, 60, 0x2aaa2, 15, 5]} />
         )
-    }
-
-    const inducedMagVector = () => {
-
     }
 
     const inducedForceVector = () => {
 
+        //TODO maybe use var to hold scaling value for force size 
+        // const scaleForce = some#usingWireDistance +/- some#usingCurrentStrength
+        // 
+
         const origin = new THREE.Vector3(wireDistance,15,0);
 
         const cur = new THREE.Vector3(0,1,0);
+        cur.multiplyScalar(-currentDirection2)
 
         const mag = new THREE.Vector3().copy(dir);
 
@@ -111,12 +110,12 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
         f.crossVectors(cur, mag)
 
         return (
-            <arrowHelper args={[f, origin, 35, 0xe80be4, 5 + currentStrength/5 - 200/wireDistance, 1.5 + currentStrength/3 - 225/wireDistance]} />
+            <arrowHelper args={[f, origin, 35, 0xecff23, 5, 3]} />
         )
     }
 
-    vectorArray.push(currentVector())
-    vectorArray.push(inducedCurrentVector())
+    vectorArray.push(currentOneVector())
+    vectorArray.push(currentTwoVector())
     vectorArray.push(inducedForceVector())
 
     return vectorArray;
