@@ -56,11 +56,11 @@ export const WireMagField = () => {
                         <Switch className='slider' onChange={handleChecked} checked={checked}/>
                 </div>
                 <div className='slider-container'>
-                    <div style={{border: '2px blue solid', display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                    <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
                         Current Strength    
                         <Slider defaultValue={currentStrength} step={5} marks min={0} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
                     </div>
-                    <div style={{border: '2px blue solid', display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                    <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
                         Field Strength
                         <Slider defaultValue={fieldStrength} step={1} marks min={0} max={5} onChange={(e) => setFieldStrength(e.target.value)}/> 
                     </div>

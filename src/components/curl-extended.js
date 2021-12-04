@@ -10,7 +10,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
     const dir = new THREE.Vector3(0,0,1);
     dir.multiplyScalar(currentDirection1);
 
-    for (let d = 0; d < 9; d++) {
+    for (let d = 0; d < 6; d++) {
         const x = 15 + d*10;
         const z = -7.5*currentDirection1;
         const y = 10;
@@ -18,7 +18,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
         const origin = new THREE.Vector3(x,y,z); 
     
         const length = (15);
-        const hex = 0xff0000;
+        const hex = 0xff00ee;
 
         vectors.push(<arrowHelper args={[dir, origin, length, hex, 2 + currentStrength/(5+d), 1 + currentStrength/(5+d)]}/>); 
     }
@@ -95,8 +95,9 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
     const inducedForceVector = () => {
 
         //TODO maybe use var to hold scaling value for force size 
-        // const scaleForce = some#usingWireDistance +/- some#usingCurrentStrength
-        // 
+
+        const scaleForce = (currentStrength / 5) - 3*(wireDistance / 25);
+        // console.log(scaleForce, wireDistance)
 
         const origin = new THREE.Vector3(wireDistance,15,0);
 
@@ -110,7 +111,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
         f.crossVectors(cur, mag)
 
         return (
-            <arrowHelper args={[f, origin, 35, 0xecff23, 5, 3]} />
+            <arrowHelper args={[f, origin, 35, 0xf9840e, 8+2*scaleForce, 6+scaleForce]} />
         )
     }
 

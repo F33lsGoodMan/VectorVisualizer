@@ -79,11 +79,11 @@ export const TwoWiresMagField = () => {
                         <Switch className='slider' onChange={handleChecked2} checked={checked2}/>
                 </div>
                 <div className='slider-container'>
-                    <div style={{border: '2px blue solid', display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                    <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
                         Current Strength    
                         <Slider defaultValue={currentStrength} step={5} marks min={5} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
                     </div>
-                    <div style={{border: '2px blue solid', display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                    <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
                         Wire Distance
                         <Slider defaultValue={wireDistance} step={5} marks min={25} max={50} onChange={(e) => setWireDistance(e.target.value)}/> 
                     </div>
