@@ -45,19 +45,6 @@ export const TwoWiresMagField = () => {
         );
     }
 
-    // <mesh position={[25, 0, 0]}>
-    //     <meshBasicMaterial color="blue" wireframe={true}/>
-    //     <cylinderGeometry args={[5, 5, 75, 64]} />;
-    // </mesh>
-
-    // <div style={{display: 'flex', alignItems: 'horizontal'}}>
-    //                 <ul>
-    //                     <li style={{listStyleType: 'none'}}><span className='legendMag'></span>Mag Field</li>
-    //                     <li style={{listStyleType: 'none'}}><span className='legendCur'></span>Current</li>
-    //                     <li style={{listStyleType: 'none'}}><span className='legendF'></span>Force</li>
-    //                 </ul>
-    //             </div>
-
     const camera2 = new THREE.PerspectiveCamera(
         60,  // fov
         2,   // aspect
@@ -72,26 +59,28 @@ export const TwoWiresMagField = () => {
             <div className='container'>
                 <div className='child-style'> 
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
-                        <Switch className='slider' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     <div style={{padding: '.4rem'}}>Current 1 Direction</div>
-                        <Switch className='slider' onChange={handleChecked1} checked={checked1}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked1} checked={checked1}/>
                     <div style={{padding: '.4rem'}}>Current 2 Direction</div>
-                        <Switch className='slider' onChange={handleChecked2} checked={checked2}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked2} checked={checked2}/>
                 </div>
                 <div className='slider-container'>
                     <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
-                        Current Strength    
-                        <Slider defaultValue={currentStrength} step={5} marks min={5} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
+                        <label style={{paddingRight: '1rem'}}>Current Strength</label>    
+                        <Slider sx={{color: '#e76f51'}} defaultValue={currentStrength} step={5} marks min={5} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
                     </div>
                     <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
-                        Wire Distance
-                        <Slider defaultValue={wireDistance} step={5} marks min={25} max={50} onChange={(e) => setWireDistance(e.target.value)}/> 
+                        <label style={{paddingRight: '1rem'}}>Wire Distance</label>
+                        <Slider sx={{color: '#e76f51'}} defaultValue={wireDistance} step={5} marks min={25} max={50} onChange={(e) => setWireDistance(e.target.value)}/> 
                     </div>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'column', width: 'inherit'}}>
+                <div style={{display: 'flex', flexDirection: 'row', width: 'inherit'}}>
                     <ul>
-                        <li style={{listStyleType: 'none'}}><span className='legendCur'></span>Current</li>
+                        <li style={{listStyleType: 'none'}}><span className='legendCur'></span>Current 1</li>
                         <li style={{listStyleType: 'none'}}><span className='legendCur2'></span>Current 2</li>
+                    </ul>
+                    <ul>
                         <li style={{listStyleType: 'none'}}><span className='legendIndF'></span>Force</li>
                         <li style={{listStyleType: 'none'}}><span className='legendF'></span>Mag Field</li>
                     </ul>

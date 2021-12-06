@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-// import ShapeUI from './shape-ui';
 
 export const CurlingVectors = (props) => {
 

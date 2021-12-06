@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import { useEffect } from 'react';
 
 export const MagField = ({fieldDirection, fieldStrength, currentStrength, currentDirection, shift}) => {
     console.log('render')

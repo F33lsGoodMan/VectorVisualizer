@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import * as THREE from 'three'
+import React, { useState } from "react";
 import { 
     Canvas
 } from "react-three-fiber";
@@ -42,12 +41,13 @@ export const WireWithCurrent = () => {
             <div className='container'>
                 <div className='child-style'> 
                     <div style={{padding: '.4rem', marginLeft: '2rem'}}>Current Direction</div>
-                        <Switch className='slider' onChange={handleChecked} checked={checked}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked} checked={checked}/>
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
-                        <Switch className='slider' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     </div>
-                <div style={{border: '2px blue solid', display: 'flex', width: '35%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem'}}>
-                        <Slider defaultValue={vectorMultiplier} step={1} marks min={0} max={5} onChange={(e) => setVectorMultiplier(e.target.value)}/> 
+                <div className='slider-container' style={{width: '35%'}}>
+                        <label style={{paddingRight: '1rem'}}>Current Strength</label>
+                        <Slider sx={{color: '#e76f51'}} defaultValue={vectorMultiplier} step={1} marks min={0} max={5} onChange={(e) => setVectorMultiplier(e.target.value)}/> 
                 </div>
                 <div>
                     <ul>

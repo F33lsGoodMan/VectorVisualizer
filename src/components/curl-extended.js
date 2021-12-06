@@ -94,10 +94,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
 
     const inducedForceVector = () => {
 
-        //TODO maybe use var to hold scaling value for force size 
-
         const scaleForce = 2*(currentStrength / 5) - 3*(wireDistance / 25);
-        // console.log(scaleForce, wireDistance)
 
         const origin = new THREE.Vector3(wireDistance,15,0);
 

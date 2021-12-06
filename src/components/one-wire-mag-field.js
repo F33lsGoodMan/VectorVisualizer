@@ -46,18 +46,18 @@ export const WireMagField = () => {
             <div className='container'>
                 <div className='child-style'> 
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
-                        <Switch className='slider' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     <div style={{padding: '.4rem'}}>Current Direction</div>
-                        <Switch className='slider' onChange={handleChecked} checked={checked}/>
+                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked} checked={checked}/>
                 </div>
                 <div className='slider-container' style={{borderRight: '1px solid black', marginRight: '1rem'}}>
-                    <div style={{display: 'flex', width: '20rem', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                    <div style={{display: 'flex', width: '20rem'}}>
                         <label style={{paddingRight: '1rem'}}>Current Strength</label>    
-                        <Slider defaultValue={currentStrength} step={5} marks min={0} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
+                        <Slider sx={{color: '#e76f51'}} defaultValue={currentStrength} step={5} marks min={0} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
                     </div>
-                    <div style={{display: 'flex', width: '20rem', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                    <div style={{display: 'flex', width: '20rem'}}>
                         <label style={{paddingRight: '1rem'}}>Field Strength</label>  
-                        <Slider defaultValue={fieldStrength} step={1} marks min={0} max={5} onChange={(e) => setFieldStrength(e.target.value)}/> 
+                        <Slider sx={{color: '#e76f51'}} defaultValue={fieldStrength} step={1} marks min={0} max={5} onChange={(e) => setFieldStrength(e.target.value)}/> 
                     </div>
                 </div>
                 <div style={{width: 'inherit'}}>
