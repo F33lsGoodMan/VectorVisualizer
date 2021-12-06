@@ -88,6 +88,14 @@ export const TwoWiresMagField = () => {
                         <Slider defaultValue={wireDistance} step={5} marks min={25} max={50} onChange={(e) => setWireDistance(e.target.value)}/> 
                     </div>
                 </div>
+                <div style={{display: 'flex', flexDirection: 'column', width: 'inherit'}}>
+                    <ul>
+                        <li style={{listStyleType: 'none'}}><span className='legendCur'></span>Current</li>
+                        <li style={{listStyleType: 'none'}}><span className='legendCur2'></span>Current 2</li>
+                        <li style={{listStyleType: 'none'}}><span className='legendIndF'></span>Force</li>
+                        <li style={{listStyleType: 'none'}}><span className='legendF'></span>Mag Field</li>
+                    </ul>
+                </div>
             </div>
             <Canvas>
                 <Light brightness={10} color={'white'} />
@@ -99,11 +107,15 @@ export const TwoWiresMagField = () => {
                     <meshBasicMaterial color="green" wireframe={true}/>
                     <cylinderGeometry args={[5, 5, 75, 64]}/>
                 </mesh>
-                <CurlingVectorsExtended 
+                {showVectors ? 
+                    <CurlingVectorsExtended 
                     currentStrength={currentStrength} 
                     currentDirection1={currentDirection1} 
                     currentDirection2={currentDirection2}
                     wireDistance={wireDistance}/>
+                :
+                    null
+                }
                 <OrbitControls/>
                 <gridHelper args={[500, 100]}/>
                 <axesHelper args={[30]}/>

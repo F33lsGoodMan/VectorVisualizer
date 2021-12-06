@@ -41,11 +41,6 @@ export const WireMagField = () => {
         setFieldDirection(e.target.value)
     }
 
-    // <mesh position={[25, 0, 0]}>
-    //     <meshBasicMaterial color="blue" wireframe={true}/>
-    //     <cylinderGeometry args={[5, 5, 75, 64]} />;
-    // </mesh>
-
     return (
         <>
             <div className='container'>
@@ -55,29 +50,29 @@ export const WireMagField = () => {
                     <div style={{padding: '.4rem'}}>Current Direction</div>
                         <Switch className='slider' onChange={handleChecked} checked={checked}/>
                 </div>
-                <div className='slider-container'>
-                    <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
-                        Current Strength    
+                <div className='slider-container' style={{borderRight: '1px solid black', marginRight: '1rem'}}>
+                    <div style={{display: 'flex', width: '20rem', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                        <label style={{paddingRight: '1rem'}}>Current Strength</label>    
                         <Slider defaultValue={currentStrength} step={5} marks min={0} max={25} onChange={(e) => setCurrentStrength(e.target.value)}/> 
                     </div>
-                    <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
-                        Field Strength
+                    <div style={{display: 'flex', width: '20rem', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
+                        <label style={{paddingRight: '1rem'}}>Field Strength</label>  
                         <Slider defaultValue={fieldStrength} step={1} marks min={0} max={5} onChange={(e) => setFieldStrength(e.target.value)}/> 
                     </div>
                 </div>
-                <div style={{display: 'flex', alignItems: 'horizontal'}}>
+                <div style={{width: 'inherit'}}>
+                    <label style={{paddingRight: '1rem'}}>Field Direction</label>  
+                    <button  className='arrow-button' value={0} onClick={handleClick}>&larr;</button>
+                    <button className='arrow-button' value={1} onClick={handleClick}>&uarr;</button>
+                    <button className='arrow-button' value={2} onClick={handleClick}>&darr;</button>
+                    <button className='arrow-button' value={3} onClick={handleClick}>&rarr;</button>
+                </div>
+                <div style={{display: 'flex', alignItems: 'horizontal', width: 'inherit'}}>
                     <ul>
                         <li style={{listStyleType: 'none'}}><span className='legendMag'></span>Mag Field</li>
                         <li style={{listStyleType: 'none'}}><span className='legendCur'></span>Current</li>
                         <li style={{listStyleType: 'none'}}><span className='legendF'></span>Force</li>
                     </ul>
-                </div>
-                <div style={{width: '35%'}}>
-                    Field Direction
-                    <button  className='arrow-button' value={0} onClick={handleClick}>&larr;</button>
-                    <button className='arrow-button' value={1} onClick={handleClick}>&uarr;</button>
-                    <button className='arrow-button' value={2} onClick={handleClick}>&darr;</button>
-                    <button className='arrow-button' value={3} onClick={handleClick}>&rarr;</button>
                 </div>
             </div>
             <Canvas>

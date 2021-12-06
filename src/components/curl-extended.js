@@ -96,7 +96,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
 
         //TODO maybe use var to hold scaling value for force size 
 
-        const scaleForce = (currentStrength / 5) - 3*(wireDistance / 25);
+        const scaleForce = 2*(currentStrength / 5) - 3*(wireDistance / 25);
         // console.log(scaleForce, wireDistance)
 
         const origin = new THREE.Vector3(wireDistance,15,0);
@@ -111,7 +111,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
         f.crossVectors(cur, mag)
 
         return (
-            <arrowHelper args={[f, origin, 35, 0xf9840e, 8+2*scaleForce, 6+scaleForce]} />
+            <arrowHelper args={[f, origin, 35, 0xf9840e, 6+scaleForce, 3+scaleForce]} />
         )
     }
 
