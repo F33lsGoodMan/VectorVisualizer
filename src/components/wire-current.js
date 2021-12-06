@@ -41,9 +41,9 @@ export const WireWithCurrent = () => {
             <div className='container'>
                 <div className='child-style'> 
                     <div style={{padding: '.4rem', marginLeft: '2rem'}}>Current Direction</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked} checked={checked}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={handleChecked} checked={checked}/>
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     </div>
                 <div className='slider-container' style={{width: '35%'}}>
                         <label style={{paddingRight: '1rem'}}>Current Strength</label>

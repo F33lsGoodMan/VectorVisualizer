@@ -46,9 +46,9 @@ export const WireMagField = () => {
             <div className='container'>
                 <div className='child-style'> 
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     <div style={{padding: '.4rem'}}>Current Direction</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked} checked={checked}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={handleChecked} checked={checked}/>
                 </div>
                 <div className='slider-container' style={{borderRight: '1px solid black', marginRight: '1rem'}}>
                     <div style={{display: 'flex', width: '20rem'}}>

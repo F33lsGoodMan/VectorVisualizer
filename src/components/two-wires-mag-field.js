@@ -59,11 +59,11 @@ export const TwoWiresMagField = () => {
             <div className='container'>
                 <div className='child-style'> 
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     <div style={{padding: '.4rem'}}>Current 1 Direction</div>
                         <Switch onColor='#e76f51' className='switch' onChange={handleChecked1} checked={checked1}/>
                     <div style={{padding: '.4rem'}}>Current 2 Direction</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked2} checked={checked2}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={handleChecked2} checked={checked2}/>
                 </div>
                 <div className='slider-container'>
                     <div style={{display: 'flex', width: '40%', justifyContent: 'space-around', verticalAlign: 'middle', height: '5rem', paddingTop: '.8rem', padding: '1rem'}}>
