@@ -90,6 +90,14 @@
     flex-direction: row;
 }
 
+.child-style-2 {
+    display: flex;
+    vertical-align: middle;
+    width: 45%;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .arrow-button {
     width: 3rem;
     height: 3rem;
