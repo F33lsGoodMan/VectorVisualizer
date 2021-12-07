@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/VectorVisualizer/static/css/main.a613190f.chunk.css",
-    "main.js": "/VectorVisualizer/static/js/main.058817ad.chunk.js",
-    "main.js.map": "/VectorVisualizer/static/js/main.058817ad.chunk.js.map",
+    "main.css": "/VectorVisualizer/static/css/main.ccf4f5f1.chunk.css",
+    "main.js": "/VectorVisualizer/static/js/main.7a8b8e2b.chunk.js",
+    "main.js.map": "/VectorVisualizer/static/js/main.7a8b8e2b.chunk.js.map",
     "runtime-main.js": "/VectorVisualizer/static/js/runtime-main.a47050e0.js",
     "runtime-main.js.map": "/VectorVisualizer/static/js/runtime-main.a47050e0.js.map",
     "static/js/2.edb413c8.chunk.js": "/VectorVisualizer/static/js/2.edb413c8.chunk.js",
     "static/js/2.edb413c8.chunk.js.map": "/VectorVisualizer/static/js/2.edb413c8.chunk.js.map",
     "index.html": "/VectorVisualizer/index.html",
-    "static/css/main.a613190f.chunk.css.map": "/VectorVisualizer/static/css/main.a613190f.chunk.css.map",
+    "static/css/main.ccf4f5f1.chunk.css.map": "/VectorVisualizer/static/css/main.ccf4f5f1.chunk.css.map",
     "static/js/2.edb413c8.chunk.js.LICENSE.txt": "/VectorVisualizer/static/js/2.edb413c8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a47050e0.js",
     "static/js/2.edb413c8.chunk.js",
-    "static/css/main.a613190f.chunk.css",
-    "static/js/main.058817ad.chunk.js"
+    "static/css/main.ccf4f5f1.chunk.css",
+    "static/js/main.7a8b8e2b.chunk.js"
   ]
 }
