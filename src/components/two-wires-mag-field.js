@@ -17,8 +17,8 @@ export const TwoWiresMagField = () => {
     const [showVectors, setShowVectors] = useState(true);
     const [checked1, setChecked1] = useState(true);
     const [checked2, setChecked2] = useState(true);
-    const [currentDirection1, setCurrentDirection1] = useState(1)
-    const [currentDirection2, setCurrentDirection2] = useState(1)
+    const [currentDirection1, setCurrentDirection1] = useState(-1)
+    const [currentDirection2, setCurrentDirection2] = useState(-1)
 
 
     const handleChecked1 = () => {
@@ -61,7 +61,7 @@ export const TwoWiresMagField = () => {
                     <div style={{padding: '.4rem'}}>Show Vectors</div>
                         <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={(() => setShowVectors(!showVectors))} checked={showVectors}/>
                     <div style={{padding: '.4rem'}}>Current 1 Direction</div>
-                        <Switch onColor='#e76f51' className='switch' onChange={handleChecked1} checked={checked1}/>
+                        <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={handleChecked1} checked={checked1}/>
                     <div style={{padding: '.4rem'}}>Current 2 Direction</div>
                         <Switch checkedIcon={false} uncheckedIcon={false} onColor='#e76f51' className='switch' onChange={handleChecked2} checked={checked2}/>
                 </div>

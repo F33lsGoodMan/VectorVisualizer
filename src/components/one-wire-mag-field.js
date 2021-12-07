@@ -16,7 +16,7 @@ export const WireMagField = () => {
     const [showVectors, setShowVectors] = useState(true);
     const [checked, setChecked] = useState(true);
     const [fieldDirection, setFieldDirection] = useState('0');
-    const [currentDirection, setCurrentDirection] = useState(1)
+    const [currentDirection, setCurrentDirection] = useState(-1)
 
     const handleChecked = () => {
         setChecked(!checked);

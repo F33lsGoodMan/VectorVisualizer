@@ -108,7 +108,7 @@ export const CurlingVectorsExtended = ({currentStrength, currentDirection1, curr
         f.crossVectors(cur, mag)
 
         return (
-            <arrowHelper args={[f, origin, 35, 0xf9840e, 6+scaleForce, 3+scaleForce]} />
+            <arrowHelper args={[f, origin, 25, 0xf9840e, 6+scaleForce, 3+scaleForce]} />
         )
     }
 

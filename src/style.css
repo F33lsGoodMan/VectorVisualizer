@@ -85,7 +85,7 @@
 .child-style {
     display: flex;
     vertical-align: middle;
-    width: 45%;
+    width: inherit;
     justify-content: center;
     flex-direction: row;
 }
